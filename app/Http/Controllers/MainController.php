@@ -26,21 +26,14 @@ class MainController extends Controller
 		$firstname = $names[0];
 		$lastname = $names[1];
 
-// Log::info('Terms: '.$request->input('terms').' '.$names[0].' '.$names[1]);
-
 		// Use Laravel's Eloquent ORM to do pull the names out of the database:
 		// SQL query equivalent: "SELECT * FROM names ORDER BY lastname ASC, firstname ASC"
-
-/* 					['firstname', 'like', $names[0]], // Match against first name user specified
-					['lastname', 'like', $names[1]] // AND against last name specified */
-/*					['firstname', 'like', '%'.$names[0].'%'], // Match against first name user specified
-					['lastname', 'like', '%'.$names[1].'%'] // AND against last name specified */
 
 		$names = Name::where([
 					['firstname', 'like', '%'.$names[0].'%'], // Match against first name user specified
 					['lastname', 'like', '%'.$names[1].'%'] // AND against last name specified
 					])
-					->limit(20) // Max 20 names
+					->limit(50) // Max 50 names, for speed
 					->orderBy('lastname', 'ASC') // Order by lastname ascending
 					->orderBy('firstname', 'ASC') // Then order by firstname ascending
 					->get(); // Get results		
