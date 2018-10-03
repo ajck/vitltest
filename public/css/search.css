@@ -1,0 +1,5 @@
+/*  CSS file for name search, v1, 3rd Oct 18 */
+
+.leftmargin { margin-left: 30px; } /* Add a 30 pixel left margin */
+.topmargin { margin-top: 30px; } /* Add a 30 pixel top margin */
+.nodisplay { display: none; } /* Hide a DOM element */
